@@ -1,18 +1,6 @@
-name: mcp-google-sheets
-version: "0.5.1"
-description: "Google Sheets MCP server (fork by hunseokko)."
 runtime: python
-entrypoint:
-  command: python
-  args: ["-m", "mcp_google_sheets"]
-
-# 배포 시 주입할 환경변수(스미더리 Secrets에 넣어 연결)
 env:
-  GOOGLE_CLIENT_ID: ${secrets.GOOGLE_CLIENT_ID}
-  GOOGLE_CLIENT_SECRET: ${secrets.GOOGLE_CLIENT_SECRET}
-  GOOGLE_REFRESH_TOKEN: ${secrets.GOOGLE_REFRESH_TOKEN}
+  - GOOGLE_CLIENT_ID
+  - GOOGLE_CLIENT_SECRET
+  - GOOGLE_REFRESH_TOKEN
 
-# 선택: 헬스체크(모듈이 실행만 되면 불필요하지만 형태상 기재)
-healthcheck:
-  type: process
-  timeout_seconds: 30
