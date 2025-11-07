@@ -1,6 +1,13 @@
-runtime: python
-env:
-  - GOOGLE_CLIENT_ID
-  - GOOGLE_CLIENT_SECRET
-  - GOOGLE_REFRESH_TOKEN
+runtime: container
 
+startCommand:
+  # uv가 없어도 동작하도록 가상환경 파이썬을 직접 실행
+  command: .venv/bin/python
+  args:
+    - -m
+    - mcp_google_sheets.server
+
+env:
+  GOOGLE_CLIENT_ID: "${env.GOOGLE_CLIENT_ID}"
+  GOOGLE_CLIENT_SECRET: "${env.GOOGLE_CLIENT_SECRET}"
+  GOOGLE_REFRESH_TOKEN: "${env.GOOGLE_REFRESH_TOKEN}"
