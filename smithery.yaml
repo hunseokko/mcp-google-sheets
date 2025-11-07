@@ -1,11 +1,4 @@
-runtime: container
-
-startCommand:
-  # uv가 없어도 동작하도록 가상환경 파이썬을 직접 실행
-  command: .venv/bin/python
-  args:
-    - -m
-    - mcp_google_sheets.server
+runtime: python
 
 env:
   GOOGLE_CLIENT_ID: "${env.GOOGLE_CLIENT_ID}"
